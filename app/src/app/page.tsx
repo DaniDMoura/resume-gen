@@ -73,7 +73,7 @@ interface ResumeInfo {
 
 const page = () => {
   return (
-    <section className="mx-8 border-x-1 h-[88vh] flex justify-center items-center">
+    <section className="mx-8 border-x-1  max-lg:h-[87vh] xl:h-[90vh] flex justify-center items-center">
       <div className="text-center flex space-y-8 flex-col">
         <h1 className="text-8xl font-medium tracking-tight">
           Your resume, <br /> made smarter.
