@@ -23,47 +23,65 @@ const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <header className="border p-6 h-[12vh]">
-      <nav className="text-md leading-none font-medium  flex justify-between items-center">
-        <Link className="flex items-center space-x-0.5" href={"/"}>
-          <h1 className="text-xl font-sans">
+    <header className="border-b py-4">
+      <nav className="text-md leading-none font-medium flex justify-between items-center max-w-7xl mx-auto px-6">
+        {/* Logo */}
+        <Link className="flex items-center space-x-1" href="/">
+          <h1 className="text-2xl font-sans tracking-tight">
             Resume<span className="font-semibold">Lab</span>
           </h1>
-          <FlaskConical strokeWidth={1.5} size={27} />
+          <FlaskConical strokeWidth={1.5} size={28} />
         </Link>
-        <div>
-          <ul className="flex space-x-4 items-center">
-            <a onClick={() => setDarkMode(!darkMode)}>
+
+        {/* Nav links */}
+        <ul className="flex items-center gap-x-6">
+          {/* Dark mode toggle */}
+          <li>
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-1 rounded-full hover:bg-gray-100 transition-colors"
+            >
               {darkMode ? (
-                <Moon size={27} strokeWidth={1.5} />
+                <Moon size={24} strokeWidth={1.5} />
               ) : (
-                <Sun size={27} strokeWidth={1.5} />
+                <Sun size={24} strokeWidth={1.5} />
               )}
-            </a>
-            <Link href={"about"}>
-              <li className="text-indigo-600">About</li>
+            </button>
+          </li>
+
+          {/* About */}
+          <li>
+            <Link
+              href="/about"
+              className="text-indigo-600 hover:text-indigo-500 transition-colors"
+            >
+              About
             </Link>
+          </li>
+
+          {/* Contact Modal */}
+          <li>
             <Dialog>
               <DialogTrigger asChild>
-                <a className="text-md cursor-pointer font-normal w-15">
+                <button className="text-md font-normal cursor-pointer hover:text-indigo-500 transition-colors">
                   Contact
-                </a>
+                </button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-md p-6">
                 <DialogHeader>
-                  <DialogTitle>Contact Me</DialogTitle>
+                  <DialogTitle className="text-xl">Contact Me</DialogTitle>
                   <DialogDescription>
                     Contact me for collaborations, inquiries, or opportunities.
                   </DialogDescription>
                 </DialogHeader>
-                <div className="flex justify-around">
+                <div className="flex justify-around mt-4">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.instagram.com/danilosmoura_/"
                   >
-                    <Button>
-                      <Instagram /> Instagram
+                    <Button className="flex items-center space-x-2">
+                      <Instagram /> <span>Instagram</span>
                     </Button>
                   </a>
                   <a
@@ -71,8 +89,8 @@ const Header = () => {
                     rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/danilosantos-moura/"
                   >
-                    <Button>
-                      <Linkedin /> LinkedIn
+                    <Button className="flex items-center space-x-2">
+                      <Linkedin /> <span>LinkedIn</span>
                     </Button>
                   </a>
                   <a
@@ -80,30 +98,37 @@ const Header = () => {
                     rel="noopener noreferrer"
                     href="https://github.com/DaniDMoura"
                   >
-                    <Button>
-                      <Github /> GitHub
+                    <Button className="flex items-center space-x-2">
+                      <Github /> <span>GitHub</span>
                     </Button>
                   </a>
                 </div>
               </DialogContent>
             </Dialog>
+          </li>
 
+          {/* External links */}
+          <li>
             <a
               href="https://github.com/DaniDMoura/resume-gen"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-indigo-500 transition-colors"
             >
-              <li>Source</li>
+              Source
             </a>
+          </li>
+          <li>
             <a
               href="https://github.com/DaniDMoura?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-indigo-500 transition-colors"
             >
-              <li>GitHub</li>
+              GitHub
             </a>
-          </ul>
-        </div>
+          </li>
+        </ul>
       </nav>
     </header>
   );

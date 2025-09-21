@@ -75,10 +75,10 @@ const page = () => {
   return (
     <section className="mx-8 border-x-1 h-[88vh] flex justify-center items-center">
       <div className="text-center flex space-y-8 flex-col">
-        <h1 className="text-6xl font-medium tracking-tight">
+        <h1 className="text-8xl font-medium tracking-tight">
           Your resume, <br /> made smarter.
         </h1>
-        <p className="text-lg">
+        <p className="text-x">
           ResumeLab is the platform that puts smart resume building, speed,
           <br /> and control in your hands — without sacrificing simplicity or
           quality.
