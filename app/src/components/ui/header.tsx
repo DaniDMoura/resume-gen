@@ -19,16 +19,22 @@ import { Button } from "./button";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   return (
-    <header className="border-b py-4 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b min-h-[10vh] max-h[13vh] py-4 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <nav className="text-md leading-none font-medium flex justify-between items-center max-w-7xl mx-auto px-6">
         <Link className="flex items-center group" href="/">
           <div className="transition-transform group-hover:scale-105">
-            {theme === "dark" ? (
+            {mounted && theme === "dark" ? (
               <Image
                 width={48}
                 height={48}
@@ -53,7 +59,7 @@ const Header = () => {
               className="p-2 rounded-lg hover:bg-muted transition-colors duration-200"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <Sun className="w-5 h-5" />
               ) : (
                 <Moon className="w-5 h-5" />
@@ -61,17 +67,8 @@ const Header = () => {
             </button>
           </li>
 
-          <li>
-            <Link
-              href="/about"
-              className="relative px-3 py-2 rounded-lg font-medium hover:text-black dark:hover:text-white transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 group"
-            >
-              About
-              <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-black dark:bg-white transition-all duration-200 group-hover:w-3/4 -translate-x-1/2"></span>
-            </Link>
-          </li>
 
-    
+
           <li>
             <Dialog>
               <DialogTrigger asChild>
@@ -155,3 +152,4 @@ const Header = () => {
 };
 
 export default Header;
+

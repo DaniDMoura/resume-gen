@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, FileUser, Github } from "lucide-react";
 import {
@@ -15,65 +15,62 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 interface ProjectInfo {
-  title: string
-  description: string
-  tools?: string
-  link?: string
+  title: string;
+  description: string;
+  tools?: string;
+  link?: string;
 }
 
 interface ExperienceInfo {
-  company: string
-  role: string
-  startDate: string 
-  endDate?: string  
-  description?: string
+  company: string;
+  role: string;
+  startDate: string;
+  endDate?: string;
+  description?: string;
 }
 
 interface LanguageInfo {
-  name: string
-  proficiency: 'Beginner' | 'Intermediate' | 'Advanced' | 'Native'
+  name: string;
+  proficiency: "Beginner" | "Intermediate" | "Advanced" | "Native";
 }
 
 interface CertificationsInfo {
-  title: string
-  issuer: string
-  date: string 
-  link?: string
+  title: string;
+  issuer: string;
+  date: string;
+  link?: string;
 }
 
 interface EducationInfo {
-  institution: string
-  degree: string
-  fieldOfStudy: string
-  startDate: string
-  endDate?: string
-  description?: string
+  institution: string;
+  degree: string;
+  fieldOfStudy: string;
+  startDate: string;
+  endDate?: string;
+  description?: string;
 }
-
-
 
 interface ResumeInfo {
-  name: string
-  number: string
-  email: string
-  bio: string
-  site1?: string
-  site2?: string
+  name: string;
+  number: string;
+  email: string;
+  bio: string;
+  site1?: string;
+  site2?: string;
 
-  about?: string
-  skills?: string[]
-  projects?: ProjectInfo[]
+  about?: string;
+  skills?: string[];
+  projects?: ProjectInfo[];
 
-  experience?: ExperienceInfo[]
-  languages?: LanguageInfo[]
-  certifications?: CertificationsInfo[]
-  education?: EducationInfo[]
+  experience?: ExperienceInfo[];
+  languages?: LanguageInfo[];
+  certifications?: CertificationsInfo[];
+  education?: EducationInfo[];
 }
-
 
 const page = () => {
   return (
-    <section className="mx-8 border-x-1  max-lg:h-[87vh] xl:h-[90vh] flex justify-center items-center">
+    <section className="mx-8 border-x-1  min-h-[87vh] max-h-[90vh] flex justify-center items-center">
       <div className="text-center flex space-y-8 flex-col">
         <h1 className="text-8xl font-medium tracking-tight">
           Your resume, <br /> made smarter.
@@ -155,9 +152,14 @@ const page = () => {
                     </div>
 
                     <div className="grid gap-2">
-                      <Label htmlFor="site1">Site 1 <span className="text-[10px] opacity-60">(Optional)</span></Label>
+                      <Label htmlFor="site1">
+                        Site 1{" "}
+                        <span className="text-[10px] opacity-60">
+                          (Optional)
+                        </span>
+                      </Label>
                       <Label htmlFor="site1" className="text-[10px] opacity-60">
-                        Your personal or portfolio site 
+                        Your personal or portfolio site
                       </Label>
                       <Input
                         id="site1"
@@ -167,9 +169,14 @@ const page = () => {
                     </div>
 
                     <div className="grid gap-2">
-                      <Label htmlFor="site2">Site 2 <span className="text-[10px] opacity-60">(Optional)</span></Label>
+                      <Label htmlFor="site2">
+                        Site 2{" "}
+                        <span className="text-[10px] opacity-60">
+                          (Optional)
+                        </span>
+                      </Label>
                       <Label htmlFor="site2" className="text-[10px] opacity-60">
-                        Another relevant site or profile 
+                        Another relevant site or profile
                       </Label>
                       <Input
                         id="site2"
@@ -177,8 +184,6 @@ const page = () => {
                         placeholder="https://github.com/username"
                       />
                     </div>
-
-
                   </div>
                 </div>
                 <DialogFooter className="sm:h-[120px]">
