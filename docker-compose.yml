@@ -4,7 +4,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "5473:5473"
+      - "80:80"
   
   backend:
     build: ./api
