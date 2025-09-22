@@ -73,13 +73,13 @@ const page = () => {
   return (
     <>
       <Header />
-      <section className="mx-[4vw] border-x-1 border-gradient from-100% via-100% min-h-[92vh]  flex justify-center items-center">
+      <section className="mx-[4vw] border-x-1 border-gradient from-100% via-100% min-h-[91vh]  flex justify-center items-center">
         <div className="text-center flex space-y-8 flex-col">
-          <h1 className="max-sm:text-5xl min-sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-8xl  font-medium tracking-tight">
+          <h1 className="max-sm:text-5xl min-sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl  font-medium tracking-tight">
             Your resume, <br /> made smarter.
           </h1>
-          <p className="text-x max-sm:text-[11px] min-sm:text-sm md:text-md lg:text-lg xl:text-xl">
-            ResumeLab is the platform that puts smart resume building, speed,
+          <p className="text-x max-sm:text-[11px] min-sm:text-sm md:text-md lg:text-lg xl:text-lg 2xl:text-xl opacity-65">
+            Resumely is the platform that puts smart resume building, speed,
             <br /> and control in your hands — without sacrificing simplicity or
             quality.
           </p>

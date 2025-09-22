@@ -12,8 +12,8 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "ResumeLab | Generate your personalized resumes",
-  description: "ResumeLab is the platform that puts smart resume building, speed, and control in your hands — without sacrificing simplicity or quality.",
+  title: "Resumely | Generate your personalized resumes",
+  description: "Resumely is the platform that puts smart resume building, speed, and control in your hands — without sacrificing simplicity or quality.",
   icons: {
     icon: "/icon-48.png"
   }
