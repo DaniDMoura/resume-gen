@@ -30,8 +30,8 @@ const Header = () => {
   }, []);
   
   return (
-    <header className="border-b min-h-[10vh] max-h[13vh] py-4 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
-      <nav className="text-md leading-none font-medium flex justify-between items-center max-w-7xl mx-auto px-6">
+    <header className="border-b min-h-[8vh] py-4 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+      <nav className="text-sm leading-none flex justify-between items-center max-w-7xl mx-auto px-6 max-md:flex-col max-md:text-sm">
         <Link className="flex items-center group" href="/">
           <div className="transition-transform group-hover:scale-105">
             {mounted && theme === "dark" ? (

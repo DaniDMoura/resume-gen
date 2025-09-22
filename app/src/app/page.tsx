@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import Header from "@/components/ui/header";
 
 interface ProjectInfo {
   title: string;
@@ -70,145 +71,163 @@ interface ResumeInfo {
 
 const page = () => {
   return (
-    <section className="mx-8 border-x-1  min-h-[87vh] max-h-[90vh] flex justify-center items-center">
-      <div className="text-center flex space-y-8 flex-col">
-        <h1 className="text-8xl font-medium tracking-tight">
-          Your resume, <br /> made smarter.
-        </h1>
-        <p className="text-x">
-          ResumeLab is the platform that puts smart resume building, speed,
-          <br /> and control in your hands — without sacrificing simplicity or
-          quality.
-        </p>
-        <div className="flex  justify-center items-center space-x-5">
-          <Dialog>
-            <form>
-              <DialogTrigger>
-                <Button
-                  asChild
-                  className="hover:bg-stone-200 cursor-pointer bg-white p-7 w-50 text-black border"
-                >
-                  <span>
-                    <FileUser /> Create Resume
-                  </span>
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[800px] sm:h-[500px]">
-                <DialogHeader className="sm:h-[80px]">
-                  <DialogTitle>Create Resume</DialogTitle>
-                  <DialogDescription>
-                    Enter your personal, educational, and work details step by
-                    step. ResumeLab will automatically create a polished PDF
-                    resume for you.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="sm:h-[300px]">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="grid gap-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Label htmlFor="name" className="text-[10px] opacity-60">
-                        Enter your full name
-                      </Label>
-                      <Input id="name" name="name" placeholder="John Doe" />
-                    </div>
+    <>
+      <Header />
+      <section className="mx-[4vw] border-x-1 border-gradient from-100% via-100% min-h-[92vh]  flex justify-center items-center">
+        <div className="text-center flex space-y-8 flex-col">
+          <h1 className="max-sm:text-5xl min-sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-8xl  font-medium tracking-tight">
+            Your resume, <br /> made smarter.
+          </h1>
+          <p className="text-x max-sm:text-[11px] min-sm:text-sm md:text-md lg:text-lg xl:text-xl">
+            ResumeLab is the platform that puts smart resume building, speed,
+            <br /> and control in your hands — without sacrificing simplicity or
+            quality.
+          </p>
+          <div className="flex  justify-center items-center space-x-5 max-md:flex-col max-md:space-y-3 max-md:space-x-0">
+            <Dialog>
+              <form>
+                <DialogTrigger>
+                  <Button
+                    asChild
+                    className="hover:bg-stone-200 shadow-md cursor-pointer rounded-full bg-white p-7 w-50 text-black border max-md:w-75 "
+                  >
+                    <span>
+                      <FileUser /> Create Resume
+                    </span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[800px] sm:h-[500px]">
+                  <DialogHeader className="sm:h-[80px]">
+                    <DialogTitle>Create Resume</DialogTitle>
+                    <DialogDescription>
+                      Enter your personal, educational, and work details step by
+                      step. ResumeLab will automatically create a polished PDF
+                      resume for you.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="sm:h-[300px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid gap-2">
+                        <Label htmlFor="name">Name</Label>
+                        <Label
+                          htmlFor="name"
+                          className="text-[10px] opacity-60"
+                        >
+                          Enter your full name
+                        </Label>
+                        <Input id="name" name="name" placeholder="John Doe" />
+                      </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="about">Bio</Label>
-                      <Label htmlFor="about" className="text-[10px] opacity-60">
-                        Write a short bio
-                      </Label>
-                      <Input
-                        id="about"
-                        name="about"
-                        placeholder="I am a software developer..."
-                      />
-                    </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="about">Bio</Label>
+                        <Label
+                          htmlFor="about"
+                          className="text-[10px] opacity-60"
+                        >
+                          Write a short bio
+                        </Label>
+                        <Input
+                          id="about"
+                          name="about"
+                          placeholder="I am a software developer..."
+                        />
+                      </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="number">Number</Label>
-                      <Label
-                        htmlFor="number"
-                        className="text-[10px] opacity-60"
-                      >
-                        Your contact phone number
-                      </Label>
-                      <Input
-                        id="number"
-                        name="number"
-                        placeholder="+55 11 91234-5678"
-                      />
-                    </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="number">Number</Label>
+                        <Label
+                          htmlFor="number"
+                          className="text-[10px] opacity-60"
+                        >
+                          Your contact phone number
+                        </Label>
+                        <Input
+                          id="number"
+                          name="number"
+                          placeholder="+55 11 91234-5678"
+                        />
+                      </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Label htmlFor="email" className="text-[10px] opacity-60">
-                        Your professional email
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        placeholder="example@mail.com"
-                      />
-                    </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Label
+                          htmlFor="email"
+                          className="text-[10px] opacity-60"
+                        >
+                          Your professional email
+                        </Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          placeholder="example@mail.com"
+                        />
+                      </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="site1">
-                        Site 1{" "}
-                        <span className="text-[10px] opacity-60">
-                          (Optional)
-                        </span>
-                      </Label>
-                      <Label htmlFor="site1" className="text-[10px] opacity-60">
-                        Your personal or portfolio site
-                      </Label>
-                      <Input
-                        id="site1"
-                        name="site1"
-                        placeholder="https://yourportfolio.com"
-                      />
-                    </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="site1">
+                          Site 1{" "}
+                          <span className="text-[10px] opacity-60">
+                            (Optional)
+                          </span>
+                        </Label>
+                        <Label
+                          htmlFor="site1"
+                          className="text-[10px] opacity-60"
+                        >
+                          Your personal or portfolio site
+                        </Label>
+                        <Input
+                          id="site1"
+                          name="site1"
+                          placeholder="https://yourportfolio.com"
+                        />
+                      </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="site2">
-                        Site 2{" "}
-                        <span className="text-[10px] opacity-60">
-                          (Optional)
-                        </span>
-                      </Label>
-                      <Label htmlFor="site2" className="text-[10px] opacity-60">
-                        Another relevant site or profile
-                      </Label>
-                      <Input
-                        id="site2"
-                        name="site2"
-                        placeholder="https://github.com/username"
-                      />
+                      <div className="grid gap-2">
+                        <Label htmlFor="site2">
+                          Site 2{" "}
+                          <span className="text-[10px] opacity-60">
+                            (Optional)
+                          </span>
+                        </Label>
+                        <Label
+                          htmlFor="site2"
+                          className="text-[10px] opacity-60"
+                        >
+                          Another relevant site or profile
+                        </Label>
+                        <Input
+                          id="site2"
+                          name="site2"
+                          placeholder="https://github.com/username"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <DialogFooter className="sm:h-[120px]">
-                  <DialogClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </DialogClose>
-                  <Button type="submit">
-                    <ChevronRight />
-                  </Button>
-                </DialogFooter>
-              </DialogContent>
-            </form>
-          </Dialog>
-          <a
-            href="https://github.com/DaniDMoura/resume-gen"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="cursor-pointer p-7 w-50">
-              <Github /> Star on GitHub
-            </Button>
-          </a>
+                  <DialogFooter className="sm:h-[120px]">
+                    <DialogClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DialogClose>
+                    <Button type="submit">
+                      <ChevronRight />
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </form>
+            </Dialog>
+            <a
+              href="https://github.com/DaniDMoura/resume-gen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="cursor-pointer dark:bg-[#232222] text-white dark:border shadow-md rounded-full max-md:w-75 p-7 w-50">
+                <Github /> Star on GitHub
+              </Button>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
