@@ -23,7 +23,7 @@ const Logo = ({ size = 48 }: LogoProps) => {
 
   return (
     <Link className="flex items-center group" href="/">
-      <div className="transition-transform group-hover:scale-105">
+      <div>
         <Image
           width={size}
           height={size}
