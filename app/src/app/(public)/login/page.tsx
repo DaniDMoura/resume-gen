@@ -4,6 +4,7 @@ import Header from "@/components/ui/header";
 import { Input } from "@/components/ui/input";
 import Logo from "@/components/ui/logo";
 import { Metadata } from "next";
+import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ const Login = () => {
   return (
     <>
       <Header />
-      <section className="px-4 sm:px-6 md:px-8 border-x border min-h-[91vh] flex justify-center items-center">
+      <section className="mx-[4vw] sm:px-6 md:px-8 border my-[4vh] rounded-[3px] min-h-[83vh] flex justify-center items-center">
         <div className="w-full max-w-md space-y-8">
           <form className="space-y-5 w-full">
             <div className="flex justify-center mb-4">
@@ -39,7 +40,7 @@ const Login = () => {
                 <Checkbox />
                 <span>Remember me?</span>
               </label>
-              <a className="text-blue-500 cursor-pointer hover:underline">
+              <a className="text-blue-400 cursor-pointer hover:underline">
                 Forgot Password?
               </a>
             </div>
@@ -79,9 +80,12 @@ const Login = () => {
             <div className="flex justify-center">
               <p className="text-sm text-center">
                 Don't have an account?{" "}
-                <a className="text-blue-400 cursor-pointer hover:underline">
+                <Link
+                  className="text-blue-400 cursor-pointer hover:underline"
+                  href={"/signup"}
+                >
                   Sign Up
-                </a>
+                </Link>
               </p>
             </div>
           </form>

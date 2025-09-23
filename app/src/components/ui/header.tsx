@@ -129,9 +129,9 @@ const Header = () => {
           </button>
 
           <Link href={"/login"}>
-            <Button className="w-20">Log In</Button>
+            <Button className="cursor-pointer w-20">Log In</Button>
           </Link>
-          <Link href={"/login"}>
+          <Link href={"/signup"}>
             <Button className="cursor-pointer dark:bg-[#232222] text-white dark:border shadow-md  max-md:w-75 w-20">
               Signup
             </Button>
