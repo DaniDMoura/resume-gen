@@ -93,7 +93,7 @@ class UserSchema(BaseModel):
     password: str
 
     created_at: datetime
-    updated: datetime
+    updated_at: Optional[datetime]
 
     resumes: Optional[List[ResumeSchema]]
 
@@ -108,7 +108,7 @@ class CreateUser(BaseModel):
     password: str
 
 
-class PacthUser(BaseModel):
+class PatchUser(BaseModel):
     username: Optional[str]
     email: Optional[EmailStr]
     password: Optional[str]

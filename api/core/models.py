@@ -24,7 +24,7 @@ class User:
     password: Mapped[str] = mapped_column(String, index=True)
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
-        init=False, server_default=func.now(), onupdate=func.now()
+        init=False, server_default=func.now(), onupdate=func.now(), nullable=True
     )
 
     resumes: Mapped[list["Resume"]] = relationship(
@@ -50,7 +50,7 @@ class Resume:
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"), index=True)
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
-        init=False, server_default=func.now(), onupdate=func.now()
+        init=False, server_default=func.now(), onupdate=func.now(), nullable=True
     )
 
     projects: Mapped[list["Project"]] = relationship(

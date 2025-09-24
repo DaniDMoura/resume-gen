@@ -25,7 +25,7 @@ async def login_for_access_token(
     if not user:
         raise login_exception
 
-    if not verify_password(form_data.passowrd, user.password):
+    if not verify_password(form_data.password, user.password):
         raise login_exception
 
     access_token = create_token(data={"sub": user.email})
