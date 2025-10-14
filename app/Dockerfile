@@ -1,11 +1,9 @@
-# Etapa 1: Construção
 FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# Instala as dependências
 RUN npm install
 
 COPY . .
@@ -27,6 +25,6 @@ COPY --from=builder /app/public ./public
 
 RUN npm install --only=production
 
-EXPOSE 3030
+EXPOSE 3000
 
 CMD ["npm", "start"]
