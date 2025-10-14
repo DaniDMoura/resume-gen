@@ -4,6 +4,9 @@ from typing import List, Optional
 
 from core.models import LangProficiencyEnum
 
+class ResetPasswordSchema(BaseModel):
+    new_password: str
+    email_token: str
 
 class EducationSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -98,8 +101,8 @@ class UserSchema(BaseModel):
     resumes: Optional[List[ResumeSchema]]
 
 
-class DeleteMessage(BaseModel):
-    detail: str
+class Message(BaseModel):
+    message: str
 
 
 class CreateUser(BaseModel):

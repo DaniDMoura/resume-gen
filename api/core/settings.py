@@ -7,3 +7,11 @@ class Settings(BaseSettings):
     ALGORITHM: str
     SECRET_JWT_KEY: str
     EXPIRE_TIME: int
+    FORGET_PASSWORD_URL: str
+    SECRET_JWT_EMAIL_KEY: str
+    GOOGLE_CLIENT_ID: str
+    GOOGLE_CLIENT_SECRET:str
+    GOOGLE_REDIRECT_URI: str
+    MAIL_USERNAME: str
+    MAIL_PASSWORD: str
+    MAIL_FROM: str

@@ -7,7 +7,7 @@ from sqlalchemy.exc import IntegrityError
 from core.models import User
 from core.services.security import get_current_user, get_password_hash
 from core.database import get_session
-from core.schemas import UserSchema, CreateUser, PatchUser, DeleteMessage
+from core.schemas import UserSchema, CreateUser, PatchUser, Message
 
 
 router = APIRouter()
@@ -83,7 +83,7 @@ async def update_user(
     return current_user
 
 
-@router.delete("/{user_id}", status_code=HTTPStatus.OK, response_model=DeleteMessage)
+@router.delete("/{user_id}", status_code=HTTPStatus.OK, response_model=Message)
 async def delete_user(
     user_id: int,
     session: AsyncSession = Depends(get_session),
@@ -97,4 +97,4 @@ async def delete_user(
     await session.delete(current_user)
     await session.commit()
 
-    return {"detail": "User deleted"}
+    return {"message": "User deleted"}

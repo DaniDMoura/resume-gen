@@ -1,5 +1,5 @@
 from sqlalchemy.orm import registry, Mapped, mapped_column, relationship
-from sqlalchemy import func, ForeignKey, String, Date, Enum, ARRAY
+from sqlalchemy import func, ForeignKey, String, Date, Enum, ARRAY, CheckConstraint
 from datetime import datetime
 from enum import StrEnum
 
@@ -9,6 +9,11 @@ class LangProficiencyEnum(StrEnum):
     intermediate = "Intermediate"
     advanced = "Advanced"
     native = "Native"
+
+
+class AuthProvider(StrEnum):
+    local = "local"
+    google = "google"
 
 
 table_registry = registry()
@@ -21,7 +26,10 @@ class User:
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
     username: Mapped[str] = mapped_column(String, unique=True)
     email: Mapped[str] = mapped_column(String, unique=True, index=True)
-    password: Mapped[str] = mapped_column(String, index=True)
+    password: Mapped[str] = mapped_column(String, index=True, nullable=True)
+    provider: Mapped[AuthProvider] = mapped_column(
+        Enum(AuthProvider, name="authprovider", create_type=True), default=AuthProvider.local
+    )
     created_at: Mapped[datetime] = mapped_column(init=False, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         init=False, server_default=func.now(), onupdate=func.now(), nullable=True
@@ -29,6 +37,12 @@ class User:
 
     resumes: Mapped[list["Resume"]] = relationship(
         back_populates="user", cascade="all, delete-orphan", lazy="selectin", init=False
+    )
+
+    __table_args__ = (
+        CheckConstraint(
+            "(provider = 'local' AND password IS NOT NULL) OR (provider = 'google' AND password IS NULL)",
+        ),
     )
 
 
